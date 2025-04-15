@@ -1,0 +1,210 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row =>
+                    row.some(cell => cell !== '' && cell !== null && cell !== undefined)
+                );
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V4U - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #4285f4;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 0.5rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    nav a:hover, nav a.active {
+      color: #4285f4;
+      border-bottom: 2px solid #4285f4;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+      background: linear-gradient(to bottom, #e3f2fd, #fff);
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      width: 260px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin: 0.5rem 0;
+      color: #333;
+    }
+    .card a {
+      text-decoration: none;
+      color: #4285f4;
+      font-weight: bold;
+    }
+    .full-width-images {
+      margin-top: 20px;
+      width: 100%;
+    }
+    .full-width-images img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 10px;
+    }
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    @media (max-width: 600px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>V4U</h1>
+    <p>Your One-Stop Academic Resource Hub</p>
+  </header>
+
+  <nav>
+    <a href="home.html" class="active">Home</a>
+    <a href="assignments.html">Assignments</a>
+    <a href="notes.html">Notes</a>
+    <a href="ia-module-question-papers.html">IA Papers</a>
+    <a href="lab-manual-records.html">Lab Records</a>
+    <a href="previous-sem-files.html">Previous Files</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome to V4U</h1>
+    <p>Access notes, assignments, question papers, lab manuals, and more in one place.</p>
+  </section>
+ 
+ <!-- Full-width Anime-style Banner Below Buttons -->
+  <div class="full-width-images">
+  <img src="image143.png" alt="V4U Banner" />
+</div>
+
+  <section class="cards">
+    <div class="card">
+      <h3>Notes</h3>
+      <p>Download syllabus-wise notes for each subject.</p>
+      <a href="notes.html">Go to Notes</a>
+    </div>
+    <div class="card">
+      <h3>Assignments</h3>
+      <p>All subject-wise assignments in one place.</p>
+      <a href="assignments.html">Go to Assignments</a>
+    </div>
+    <div class="card">
+      <h3>IA / Module QPs</h3>
+      <p>Practice with internal and module question papers.</p>
+      <a href="ia-module-question-papers.html">Go to IA QPs</a>
+    </div>
+    <div class="card">
+      <h3>Lab Records</h3>
+      <p>Lab manuals and sample records organized per subject.</p>
+      <a href="lab-manual-records.html">Go to Lab Records</a>
+    </div>
+    <div class="card">
+      <h3>Previous Sem Files</h3>
+      <p>Access files from previous semesters for all subjects.</p>
+      <a href="previous-sem-files.html">Go to Files</a>
+    </div>
+  </section>
+
+
+
+  <footer>
+    <p>© 2025 V4U. Developed with ❤️ by Vinod Raj S D.</p>
+  </footer>
+
+  <script>
+    // Smooth fade-in effect on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.classList.add('fade-in');
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
