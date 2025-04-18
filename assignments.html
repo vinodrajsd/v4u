@@ -65,9 +65,9 @@
       padding: 0.5rem;
     }
     nav a {
-      color: #4285f4;
-      margin: 0 1rem;
+      margin: 0 1rem; /* Matches home.html for consistent size */
       text-decoration: none;
+      color: #333;
       font-weight: 500;
     }
     nav a:hover, nav a.active {
@@ -150,6 +150,30 @@
       padding-bottom: 60px; /* Height of footer */
     }
     */
+    /* Updated Scrolling Text Animation */
+    .scrolling-text {
+      background-color: #4285f4;
+      color: white;
+      font-size: 1.2rem; /* Maintain readable font size */
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 0.25rem 0; /* Reduced padding for thinner line */
+      position: relative;
+      width: 100%; /* Ensure full width */
+      box-sizing: border-box; /* Include padding in width calculation */
+    }
+    .scrolling-text p {
+      display: inline-block;
+      animation: scroll 10s linear infinite; /* Adjusted to 10s for requested speed */
+      transform: translateX(-100%); /* Start off-screen to the left */
+      background: rgba(255, 255, 0, 0.3); /* Highlight with yellow transparency */
+      padding: 0 0.5rem; /* Padding inside highlight */
+    }
+    @keyframes scroll {
+      0% { transform: translateX(-100%); } /* Start off-screen to the left */
+      100% { transform: translateX(170%); } /* Adjusted to 170% to fully exit */
+    }
   </style>
 </head>
 <body>
@@ -159,13 +183,17 @@
   </header>
 
   <nav>
-    <a href="index.html">Home</a>
+    <a href="home.html">Home</a>
     <a href="assignments.html" class='active'>Assignments</a>
     <a href="notes.html">Notes</a>
     <a href="ia-module-question-papers.html">IA Papers</a>
     <a href="lab-manual-records.html">Lab Records</a>
     <a href="previous-sem-files.html">Previous Files</a>
   </nav>
+
+  <div class="scrolling-text">
+    <p>DSP, PSA-1, RM & IPR, EVT, and Embedded Systems 1st Assignment has been uploaded</p>
+  </div>
 
   <section class="hero">
     <h1>Assignments</h1>
@@ -238,5 +266,5 @@
         }
         return gk_fileData[filename] || "";
         }
-        </script></body>
+        </script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'932132b7cc5dbd30',t:'MTc0NDk0ODIyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
