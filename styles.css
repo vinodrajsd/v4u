@@ -146,3 +146,32 @@ section {
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
+
+.button-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.button-links a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+  background-color: #4285f4;
+  transition: background-color 0.3s;
+  min-width: 220px;
+  text-align: center;
+}
+
+.button-links a:nth-child(2) {
+  background-color: #34a853;
+}
+
+.button-links a:hover {
+  opacity: 0.9;
+}
