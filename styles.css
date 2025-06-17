@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -110,24 +111,6 @@ footer {
   margin-top: auto;
 }
 
-/* Optional: Uncomment if you want a fixed footer */
-/*
-footer {
-  background: #4285f4;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #555;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
-
-body {
-  padding-bottom: 60px;
-}
-*/
-
 .full-width-images {
   margin-top: 20px;
   width: 100%;
@@ -148,9 +131,44 @@ section {
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
+.button-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.button-links a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+  background-color: #4285f4;
+  transition: background-color 0.3s;
+  min-width: 220px;
+  text-align: center;
+}
+
+.button-links a:nth-child(2) {
+  background-color: #34a853;
+}
+
+.button-links a:hover {
+  opacity: 0.9;
+}
+
+/* Responsive fix for stacking buttons */
 @media (max-width: 480px) {
+  .button-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .button-links a {
-    width: 100%;
-    max-width: 90%;
+    width: 90%;
+    max-width: 300px;
   }
 }
