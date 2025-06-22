@@ -26,6 +26,36 @@
     .hero p { font-size: 1.1rem; color: #555; }
     .container { max-width: 800px; margin: 2rem auto; padding: 1rem; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     footer { background: #eee; text-align: center; padding: 1rem; font-size: 0.9rem; color: #555; }
+  #555; }
+  
+.subject-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 1rem;
+}
+.assignment-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.assignment-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.assignment-btn:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
   </style>
 </head>
 <body>
@@ -47,10 +77,19 @@
     <h1>IA / Module QPs</h1>
     <p>Internal and module-wise question papers.</p>
   </section>
-
-    </div>
-  </div>
-
+<div class="container">
+<div class="subject-title">IA Question Papers</div>
+<div class="assignment-buttons">
+<button class="assignment-btn" onclick="window.location.href='https://drive.google.com/file/d/IA_QP_1/view'">IA 1</button>
+<button class="assignment-btn" onclick="window.location.href='https://drive.google.com/file/d/IA_QP_2/view'">IA 2</button>
+<button class="assignment-btn" onclick="window.location.href='https://drive.google.com/file/d/IA_QP_3/view'">IA 3</button>
+</div>
+<div class="subject-title">Module Question Papers</div>
+<div class="assignment-buttons">
+<button class="assignment-btn" onclick="window.location.href='https://drive.google.com/file/d/MODULE_QP_1/view'">Module QP 1</button>
+<button class="assignment-btn" onclick="window.location.href='https://drive.google.com/file/d/MODULE_QP_2/view'">Module QP 2</button>
+</div>
+</div>
   <footer>
     <p>© 2025 V4U. Developed with ♡ by Vinod Raj S D.</p>
   </footer>
