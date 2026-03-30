@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
+  /* FIXED: footer placement - removed margin-bottom that reserved dead space */
 }
 
 header {
@@ -60,6 +60,8 @@ nav a:hover, nav a.active {
   color: #555;
 }
 
+/* FIXED: container height - removed flex: 1 0 auto which was forcing the container
+   to stretch and fill remaining page height, causing the large empty space */
 .container {
   max-width: 800px;
   margin: 2rem auto;
@@ -67,7 +69,6 @@ nav a:hover, nav a.active {
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  flex: 1 0 auto;
 }
 
 .assignment-buttons {
@@ -101,6 +102,8 @@ nav a:hover, nav a.active {
   transform: scale(1.05);
 }
 
+/* FIXED: footer placement - margin-top: auto pushes footer to bottom when
+   page content is shorter than viewport, without needing position:fixed */
 footer {
   background: #eee;
   text-align: center;
